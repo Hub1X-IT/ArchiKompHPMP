@@ -2,7 +2,7 @@
 ;                                                                             ;
 ; Plik           : arch1-2c.asm                                               ;
 ; Format         : COM                                                        ;
-; Cwiczenie      : Kompilacja, konsolidacja i debugowanie programów           ;
+; Cwiczenie      : Kompilacja, konsolidacja i debugowanie programï¿½w           ;
 ;                  asemblerowych                                              ;
 ; Autorzy        : Imie Nazwisko, Imie Nazwisko, grupa, dzien, godzina zajec  ;
 ; Data zaliczenia: DD.MM.ROK                                                  ;
@@ -10,12 +10,12 @@
 ;                                                                             ;
 ;=============================================================================;
 
-                .HODEL  TIN
+                .MODEL  TINY
 
-Kod             SEGNEMT
+Kod             SEGMENT
 
                 ORG:    256h
-                ASSUME  CS:Dane, DS:Kod, SS:
+                ASSUME  CS:Kod, DS:Dane, SS:Kod
 
 Start:
 
