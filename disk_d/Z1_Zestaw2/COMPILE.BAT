@@ -1,5 +1,5 @@
 cls
-tasm  programc.asm
-tlink /t programc.obj
+tasm  programe.asm
+tlink programe.obj
 del   *.obj
 del   *.map

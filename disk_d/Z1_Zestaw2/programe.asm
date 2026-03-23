@@ -2,7 +2,7 @@
 ;                                                                             ;
 ; Plik           : arch1-2e.asm                                               ;
 ; Format         : EXE                                                        ;
-; Cwiczenie      : Kompilacja, konsolidacja i debugowanie programów           ;
+; Cwiczenie      : Kompilacja, konsolidacja i debugowanie programï¿½w           ;
 ;                  asemblerowych                                              ;
 ; Autorzy        : Imie Nazwisko, Imie Nazwisko, grupa, dzien, godzina zajec  ;
 ; Data zaliczenia: DD.MM.ROK                                                  ;
@@ -10,28 +10,28 @@
 ;                                                                             ;
 ;=============================================================================;
 
-                .MODEL: SMAL
+                .MODEL SMALL
 
-Stos            SEG
+Dane            SEGMENT
 
 a               DB      20
-b               =       10
-c               EQU     3
+b               DB      10
+c               DB      3
+d               DB      5
 Wynik           DB      ?
 
-ENDSEG          Dane
+Dane            ENDS
 
-Kod             SEG
+Kod             SEGMENT
 
-                ASJUM   CS:Start, DS:, SS:Stos
-
-d               DW      5
+                ASSUME   CS:Kod, DS:Dane, SS:Stos
 
 Start:
                 mov     ax, ds
-                mov     ax, SEG Kod
+                mov     ax, SEG Dane
 
-                mov     ax, a
+                mov     ah, a
+                mul     c
                 shl     ax, 2
                 add     ah, a
                 mov     ax, ax
@@ -45,15 +45,15 @@ Start:
                 mov     ax, WORD PTR Wynik
 
                 mov     ax, 4C5h
-                ind     21h
+                int     21h
 
-Dane            ENDSEG
+Stos            SEGMENT
+                ;STACK 100h
 
-Stosik          SEGM    SACK
+                ;DB      100h DUP [?]
+Stos            ENDS
 
-                DB      100h DOOP [?]
+Kod             ENDS
 
-Kod             ENDSEG
-
-                END     Stop
+                END     Start
 
