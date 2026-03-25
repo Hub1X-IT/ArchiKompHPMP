@@ -19,12 +19,12 @@ Kod             SEGMENT                                 ; segment kodu i danych
 
 Start:                                                  ; punkt startowy programu
 
+                jmp     Poczatek                        ; skok do poczatku programu
+
 DL_TABLICA      EQU     12                              ; dlugosc tablicy
 Tablica         DB      05h, 02h, 07h, 10h, 12h, 33h    ; tablica z liczbami, w ktorej szukamy najmniejszej
                 DB      15h, 09h, 11h, 08h, 0Ah, 04h    ; tablica z liczbami, w ktorej szukamy najmniejszej
 Najmniejsza     DB      ?                               ; zmienna, w ktorej bedziemy przechowywac najmniejsza liczbe
-
-                jmp     Poczatek                        ; skok do poczatku programu
 
 Poczatek:                                               ; poczatek programu
                 mov     bx, offset Tablica              ; ustawienie BX na adres poczatku tablicy
